@@ -4,7 +4,9 @@
 
   tasks:
   - name: removing old war file
-    shell: rm -rf /opt/tomcat9/webapps/SpringBootMavenExample-1.3.5.RELEASE.war
+    file:
+      path: /opt/tomcat9/webapps/SpringBootMavenExample-1.3.5.RELEASE.war
+      state: absent
   - name: deploy war file
     copy:
       src: /root/.jenkins/workspace/job-3/target/SpringBootMavenExample-1.3.5.RELEASE.war
